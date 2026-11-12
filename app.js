@@ -90,6 +90,7 @@ function selectFilm(language,version) {
   player.querySelector('source').src = mediaPath;
   player.poster = `media/poster-${language==='zh'?'zh-':''}${version}.jpg`;
   player.setAttribute('aria-label', `基督教破产之后，上帝仍在 ${languages[language].label}${versions[version].label}`);
+  player.preload = 'metadata';
   player.load();
   const description=language==='zh'?(version==='narrated'?'原版十字架开场，中文画面与中文解说。':'原版十字架开场，保留中文画面，没有解说旁白。'):(version==='narrated'?'英文画面与英文解说。':'保留英文画面，没有解说旁白。');
   document.querySelector('#film-description').textContent = `${languages[language].label}${versions[version].label}：${description}点击播放后开始加载。`;
