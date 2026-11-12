@@ -6,7 +6,8 @@
     "bytes": 47220939,
     "original_bytes": 159157282,
     "resolution": "1280x720",
-    "fps": 24
+    "fps": 24,
+    "language": "en"
   },
   {
     "version": "no-narration",
@@ -14,6 +15,31 @@
     "duration_seconds": 998.05,
     "bytes": 41158080,
     "original_bytes": 144561675,
+    "resolution": "1280x720",
+    "fps": 24,
+    "language": "en"
+  },
+  {
+    "language": "zh",
+    "version": "narrated",
+    "file": "god-remains-zh-narrated.mp4",
+    "source_name": "基督教破产之后_上帝仍在_1.2-v5_配音版.mp4",
+    "opening": "original-cross",
+    "duration_seconds": 1018.25,
+    "bytes": 41427560,
+    "original_bytes": 139159935,
+    "resolution": "1280x720",
+    "fps": 24
+  },
+  {
+    "language": "zh",
+    "version": "no-narration",
+    "file": "god-remains-zh-no-narration.mp4",
+    "source_name": "基督教破产之后_上帝仍在_1.2-v5_无独白版.mp4",
+    "opening": "original-cross",
+    "duration_seconds": 942.83,
+    "bytes": 38949751,
+    "original_bytes": 135951557,
     "resolution": "1280x720",
     "fps": 24
   }

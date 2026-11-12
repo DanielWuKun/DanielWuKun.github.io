@@ -76,23 +76,34 @@ selectTopic('origins');
 
 const player = document.querySelector('#film-player');
 const versions = {
-  narrated: {label: '英文旁白版', description: '英文旁白版：英文画面与英文解说。点击播放后开始加载。'},
-  'no-narration': {label: '英文无旁白版', description: '英文无旁白版：保留英文画面，没有解说旁白。点击播放后开始加载。'}
+  narrated: {label: '旁白版'},
+  'no-narration': {label: '无旁白版'}
 };
-document.querySelectorAll('[data-video]').forEach(button => button.addEventListener('click', () => {
-  if (button.getAttribute('aria-pressed') === 'true') return;
-  const version = button.dataset.video;
+const languages = {zh:{label:'中文',edition:'中文原版'},en:{label:'英文',edition:'ENGLISH'}};
+let selectedLanguage='zh';
+let selectedVersion='narrated';
+function selectFilm(language,version) {
+  if(language===selectedLanguage && version===selectedVersion) return;
+  selectedLanguage=language; selectedVersion=version;
+  const mediaPath=`media/god-remains-${language}-${version}.mp4`;
   player.pause();
-  player.querySelector('source').src = `media/god-remains-en-${version}.mp4`;
-  player.poster = `media/poster-${version}.jpg`;
-  player.setAttribute('aria-label', `After Christianity’s Bankruptcy, God Remains ${versions[version].label}`);
+  player.querySelector('source').src = mediaPath;
+  player.poster = `media/poster-${language==='zh'?'zh-':''}${version}.jpg`;
+  player.setAttribute('aria-label', `基督教破产之后，上帝仍在 ${languages[language].label}${versions[version].label}`);
   player.load();
-  document.querySelector('#film-description').textContent = versions[version].description;
-  document.querySelector('#film-download').href = `media/god-remains-en-${version}.mp4`;
+  const description=language==='zh'?(version==='narrated'?'原版十字架开场，中文画面与中文解说。':'原版十字架开场，保留中文画面，没有解说旁白。'):(version==='narrated'?'英文画面与英文解说。':'保留英文画面，没有解说旁白。');
+  document.querySelector('#film-description').textContent = `${languages[language].label}${versions[version].label}：${description}点击播放后开始加载。`;
+  document.querySelector('#film-download').href=mediaPath;
+  document.querySelector('#film-edition').textContent=`1.2-v5 · ${languages[language].edition} · 720P`;
   document.querySelectorAll('[data-video]').forEach(b => {
-    const selected = b === button; b.classList.toggle('active',selected); b.setAttribute('aria-pressed',String(selected));
+    const selected = b.dataset.video === version; b.classList.toggle('active',selected); b.setAttribute('aria-pressed',String(selected));
   });
-}));
+  document.querySelectorAll('[data-language]').forEach(b=>{
+    const selected=b.dataset.language===language;b.classList.toggle('active',selected);b.setAttribute('aria-pressed',String(selected));
+  });
+}
+document.querySelectorAll('[data-video]').forEach(button=>button.addEventListener('click',()=>selectFilm(selectedLanguage,button.dataset.video)));
+document.querySelectorAll('[data-language]').forEach(button=>button.addEventListener('click',()=>selectFilm(button.dataset.language,selectedVersion)));
 const responses = {
   memory:'记忆能建立心理联系。但若两人同时拥有同样记忆，为什么它能唯一决定谁是原来的主体？需要进一步说明同一性是否允许分支。',
   body:'身体与因果来源能区分原体和复制体。接着要问：逐步替换组织，或暂停后恢复时，哪种连续关系是必须保留的？',

@@ -7,7 +7,7 @@
 ## 当前内容
 
 - 旧约与人类学对照图谱：六个可选择主题，分别展示经文、材料、比较判断和外部来源。
-- 英文影像随笔：After Christianity’s Bankruptcy, God Remains 1.2-v5，旁白版和无旁白版。
+- 中英文影像随笔：After Christianity’s Bankruptcy, God Remains 1.2-v5，中文旁白、中文无旁白、英文旁白、英文无旁白共四版。中文版采用原版十字架开场，不是星系开场版。
 - 三篇入门笔记与主体同一性思想实验。
 
 ## 维护
