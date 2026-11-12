@@ -1,0 +1,20 @@
+[
+  {
+    "version": "narrated",
+    "file": "god-remains-en-narrated.mp4",
+    "duration_seconds": 1178.22,
+    "bytes": 47220939,
+    "original_bytes": 159157282,
+    "resolution": "1280x720",
+    "fps": 24
+  },
+  {
+    "version": "no-narration",
+    "file": "god-remains-en-no-narration.mp4",
+    "duration_seconds": 998.05,
+    "bytes": 41158080,
+    "original_bytes": 144561675,
+    "resolution": "1280x720",
+    "fps": 24
+  }
+]
